@@ -8,11 +8,13 @@ ENV PATH $JMETER_HOME/bin:$PATH
 ENV JMETER_SERVER_PORT 1099
 
 # Install necessary utilities and download JMeter
-RUN apt-get update && apt-get install -y wget unzip && \
-    wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz && \
-    tar -xvzf apache-jmeter-${JMETER_VERSION}.tgz -C /opt && \
-    rm -rf apache-jmeter-${JMETER_VERSION}.tgz && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y wget unzip
+
+RUN wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
+
+RUN tar -xvzf apache-jmeter-${JMETER_VERSION}.tgz -C /opt
+RUN rm -rf apache-jmeter-${JMETER_VERSION}.tgz
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR $JMETER_HOME
