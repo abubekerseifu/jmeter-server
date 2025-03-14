@@ -10,7 +10,7 @@ ENV JMETER_SERVER_PORT 1099
 # Install necessary utilities and download JMeter
 RUN apt-get update && apt-get install -y wget unzip
 
-RUN wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
+RUN wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
 
 RUN tar -xvzf apache-jmeter-${JMETER_VERSION}.tgz -C /opt
 RUN rm -rf apache-jmeter-${JMETER_VERSION}.tgz
