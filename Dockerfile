@@ -3,7 +3,7 @@ FROM openjdk:11-jre-slim
 
 # Set environment variables for JMeter
 ENV JMETER_VERSION 5.5
-ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
+ENV JMETER_HOME /opt/apache-jmeter-5.6.3
 ENV PATH $JMETER_HOME/bin:$PATH
 ENV JMETER_SERVER_PORT 1099
 
@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y wget unzip
 
 RUN wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
 
-RUN tar -xvzf apache-jmeter-${JMETER_VERSION}.tgz -C /opt
-RUN rm -rf apache-jmeter-${JMETER_VERSION}.tgz
+RUN tar -xvzf apache-jmeter-5.6.3.tgz -C /opt
+RUN rm -rf apache-jmeter-5.6.3.tgz
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
